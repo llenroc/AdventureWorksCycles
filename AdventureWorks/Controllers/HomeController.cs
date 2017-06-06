@@ -15,7 +15,7 @@ namespace AdventureWorks.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Beispielanwendung zur Adventure Works Cycles Datenbank.";
 
             return View();
         }
