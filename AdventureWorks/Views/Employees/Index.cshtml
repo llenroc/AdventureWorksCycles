@@ -7,7 +7,7 @@
             ViewBag.Title = "Index";
         }
 
-        <h2>Angestellte: Übersicht</h2>
+        <h2>Übersicht</h2>
         <br />
     </div>
 </div>
@@ -28,15 +28,14 @@
 <div class="code-cut">
     @Html.Grid(Model).Named("employeeGrid").Columns(columns =>
 {
-    columns.Add(c => c.BusinessEntityID).Titled("ID").Filterable(true).Sanitized(false).Encoded(false).RenderValueAs(model => Html.ActionLink(model.EmployeeID,"Details", "EmployeeDepartmentHistories", new { id = model.BusinessEntityID }, null).ToHtmlString());
-    columns.Add(c => c.JobTitle).Titled("Titel").Filterable(true);
-    columns.Add(c => c.BirthDate).Titled("Geburtsdatum").Format("{0:dd/MM/yyyy}").Filterable(true);
-    columns.Add(c => c.FirstName).Titled("Vorname").Filterable(true);
-    columns.Add(c => c.MiddleName).Titled("Mittelname").Filterable(true);
-    columns.Add(c => c.LastName).Titled("Nachname").Filterable(true)
+    columns.Add(c => c.BusinessEntityID).Titled("ID").Filterable(true).Sanitized(false).Encoded(false).RenderValueAs(model => Html.ActionLink(model.EmployeeID,"Details", "EmployeeDepartmentHistories", new { id = model.BusinessEntityID }, null).ToHtmlString()).SetWidth(80);
+    columns.Add(c => c.JobTitle).Titled("Titel").Filterable(true).SetWidth(300);
+    columns.Add(c => c.BirthDate).Titled("Geburtsdatum").Format("{0:dd/MM/yyyy}").Filterable(true).SetWidth(80);
+    columns.Add(c => c.FirstName).Titled("Vorname").Filterable(true).SetWidth(150);
+    columns.Add(c => c.MiddleName).Titled("Mittelname").Filterable(true).SetWidth(150);
+    columns.Add(c => c.LastName).Titled("Nachname").Filterable(true).SetWidth(150)
     .Encoded(false)
-    .Sanitized(false)
-    .SetWidth(30);
+    .Sanitized(false);
 }).WithPaging(10).Sortable(true).Selectable(true)
 
 </div>

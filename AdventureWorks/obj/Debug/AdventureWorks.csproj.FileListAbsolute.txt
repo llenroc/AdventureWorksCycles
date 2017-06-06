@@ -86,3 +86,4 @@ c:\users\stmue\documents\visual studio 2015\Projects\AdventureWorks\AdventureWor
 c:\users\stmue\documents\visual studio 2015\Projects\AdventureWorks\AdventureWorks\bin\de\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 c:\users\stmue\documents\visual studio 2015\Projects\AdventureWorks\AdventureWorks\obj\Debug\AdventureWorks.dll
 c:\users\stmue\documents\visual studio 2015\Projects\AdventureWorks\AdventureWorks\obj\Debug\AdventureWorks.pdb
+C:\Users\stmue\documents\visual studio 2015\Projects\AdventureWorks\AdventureWorks\obj\Debug\AdventureWorks.csprojResolveAssemblyReference.cache

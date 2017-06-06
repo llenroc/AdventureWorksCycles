@@ -16,7 +16,7 @@ namespace AdventureWorks.Controllers
             // create new employeeContent object (DAL) 
             EmployeeContent epc = new EmployeeContent();
 
-            // get all Employees (List)
+            // Determine all employees(List) using the DAL function 
             var employeeList = epc.getAllEmployees();
 
             // If the search string is not empty, the result set is reduced to the parameter to be searched in the "First name" and "Last name" columns.
@@ -25,6 +25,7 @@ namespace AdventureWorks.Controllers
                 employeeList = employeeList.Where(s => s.LastName.Contains(searchString) || s.FirstName.Contains(searchString)).ToList();
             }
             
+            // return the employeelist
             return View(employeeList);
         }
 

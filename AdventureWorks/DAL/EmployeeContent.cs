@@ -8,6 +8,10 @@ namespace AdventureWorks.DAL
 {
     public class EmployeeContent
     {
+        /// <summary>
+        /// Return all existing employee records.
+        /// </summary>
+        /// <returns></returns>
         public List<Employees> getAllEmployees()
         {
             IQueryable<Employees> content = null;
@@ -35,6 +39,11 @@ namespace AdventureWorks.DAL
             }
         }
 
+        /// <summary>
+        /// Determination of the employee data record using the passed parameter.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Employees record</returns>
         public Employees getEmployeeNameById(int id)
         {
             using (AdventureWorksCyclesEntities dbContext = new AdventureWorksCyclesEntities())
