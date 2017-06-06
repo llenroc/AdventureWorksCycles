@@ -16,16 +16,17 @@
 <div class="code-cut">
     @Html.Grid(Model).Named("employeeDepartmentHistGrid").Columns(columns =>
     {
-        columns.Add(c => c.BusinessEntityID).Titled("ID").Filterable(true);
-        columns.Add(c => c.StartDate).Titled("Startdatum").Format("{0:dd/MM/yyyy}").Filterable(true);
-        columns.Add(c => c.EndDate).Titled("Enddatum").Format("{0:dd/MM/yyyy}").Filterable(true);
-        columns.Add(c => c.DepartmentID).Titled("Abteilungsnummer").Filterable(true);
-        columns.Add(c => c.Name).Titled("Abteilungsname").Filterable(true)
+        columns.Add(c => c.BusinessEntityID).Titled("ID").SetWidth(50);
+        columns.Add(c => c.StartDate).Titled("Startdatum").Format("{0:dd/MM/yyyy}").SetWidth(80);
+        columns.Add(c => c.EndDate).Titled("Enddatum").Format("{0:dd/MM/yyyy}").SetWidth(80);
+        columns.Add(c => c.DepartmentID).Titled("Abteilungsnummer").SetWidth(30);
+        columns.Add(c => c.Name).Titled("Abteilungsname")
         .Encoded(false)
         .Sanitized(false)
         .SetWidth(30);
     }).WithPaging(10).Sortable(true).Selectable(true)
 </div>
+<br />
 <p>
     @Html.ActionLink("Zurück zur Übersicht", "Index", "Employees")
 </p>

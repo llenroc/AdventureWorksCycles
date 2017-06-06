@@ -7,7 +7,7 @@
             ViewBag.Title = "Index";
         }
 
-        <h2>Übersicht</h2>
+        <h2>Mitarbeiterübersicht</h2>
         <br />
     </div>
 </div>
@@ -23,19 +23,38 @@
         </form>
     </div>
 </div>
+
+@if (ViewBag.SearchingFor != null)
+{
+<br />
+<div class="row bg-warning"  style="text-align:center">
+    <p class="col-xs-12 col-md-12">
+        <br />
+        <label for="resultLabel">@ViewBag.SearchingFor</label>
+    </p>
+</div>
+}
+
 <br />
 
-<div class="code-cut">
+<div id="astr" class="code-cut">
     @Html.Grid(Model).Named("employeeGrid").Columns(columns =>
-{
-    columns.Add(c => c.BusinessEntityID).Titled("ID").Filterable(true).Sanitized(false).Encoded(false).RenderValueAs(model => Html.ActionLink(model.EmployeeID,"Details", "EmployeeDepartmentHistories", new { id = model.BusinessEntityID }, null).ToHtmlString()).SetWidth(80);
-    columns.Add(c => c.JobTitle).Titled("Titel").Filterable(true).SetWidth(300);
-    columns.Add(c => c.BirthDate).Titled("Geburtsdatum").Format("{0:dd/MM/yyyy}").Filterable(true).SetWidth(80);
-    columns.Add(c => c.FirstName).Titled("Vorname").Filterable(true).SetWidth(150);
-    columns.Add(c => c.MiddleName).Titled("Mittelname").Filterable(true).SetWidth(150);
-    columns.Add(c => c.LastName).Titled("Nachname").Filterable(true).SetWidth(150)
+    {
+    columns.Add(c => c.BusinessEntityID).Titled("ID").Sanitized(false).Encoded(false).RenderValueAs(model => Html.ActionLink(model.EmployeeID,"Details", "EmployeeDepartmentHistories", new { id = model.BusinessEntityID }, null).ToHtmlString()).SetWidth(80);
+    columns.Add(c => c.JobTitle).Titled("Titel").SetWidth(300);
+    columns.Add(c => c.BirthDate).Titled("Geburtsdatum").Format("{0:dd/MM/yyyy}").SetWidth(80);
+    columns.Add(c => c.FirstName).Titled("Vorname").SetWidth(150);
+    columns.Add(c => c.MiddleName).Titled("Mittelname").SetWidth(150);
+    columns.Add(c => c.LastName).Titled("Nachname").SetWidth(150)
     .Encoded(false)
     .Sanitized(false);
-}).WithPaging(10).Sortable(true).Selectable(true)
+    columns.Add(o => o.similarity, true);
+        }).WithPaging(10).Sortable(true).Selectable(true)
 
 </div>
+<br />
+
+    @section Scripts {
+        <script type="text/javascript">
+        </script>
+    }

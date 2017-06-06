@@ -19,5 +19,7 @@ namespace AdventureWorks.Models
         public DateTime? HireDate { get; set; }
         public DateTime? ModificationDate {  get; set; }
 
+        public double similarity { get; set; }
+
     }
 }
